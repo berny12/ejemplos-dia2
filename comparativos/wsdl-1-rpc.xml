@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://rpc.sib.webservices.cursos.synergyj.com/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://schemas.xmlsoap.org/wsdl/"
+	targetNamespace="http://rpc.sib.webservices.cursos.synergyj.com/"
+	name="OrdenCompraServiceImplService">
+	<import namespace="http://rpc.sei.webservices.cursos.synergyj.com/"
+		location="http://127.0.0.1:9877/ordenCompraService?wsdl=1"></import>
+	<binding xmlns:ns1="http://rpc.sei.webservices.cursos.synergyj.com/"
+		name="OrdenCompraServiceImplPortBinding" type="ns1:OrdenCompraService">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"
+			style="rpc"></soap:binding>
+		<operation name="validaOrden">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal"
+					namespace="http://rpc.sei.webservices.cursos.synergyj.com/"></soap:body>
+			</input>
+			<output>
+				<soap:body use="literal"
+					namespace="http://rpc.sei.webservices.cursos.synergyj.com/"></soap:body>
+			</output>
+		</operation>
+	</binding>
+	<service name="OrdenCompraServiceImplService">
+		<port name="OrdenCompraServiceImplPort" binding="tns:OrdenCompraServiceImplPortBinding">
+			<soap:address location="http://127.0.0.1:9877/ordenCompraService"></soap:address>
+		</port>
+	</service>
+</definitions>

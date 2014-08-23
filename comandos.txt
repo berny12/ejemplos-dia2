@@ -1,0 +1,10 @@
+
+wsimport -keep -d target/test-classes -s src/test/java -p com.synergyj.cursos.webservices.lab1.cliente http://localhost:9876/timeService?wsdl
+
+wsimport -keep -d target/test-classes -s src/test/java -p com.synergyj.cursos.webservices.lab6.cliente http://127.0.0.1:9879/buscadorLibros?wsdl -b ./config-async/custom.xml
+
+wsimport -keep -d target/test-classes -s src/test/java -p com.synergyj.cursos.webservices.lab3.cliente http://localhost:9876/conversorTemperaturasService?wsdl
+
+wsimport -keep -d target/test-classes -s src/test/java -p com.synergyj.cursos.webservices.lab9.cliente http://127.0.0.1:9878/recepcionInfoServer?wsdl
+
+

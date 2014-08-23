@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:tns="http://document.sei.webservices.cursos.synergyj.com/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0"
+	targetNamespace="http://document.sei.webservices.cursos.synergyj.com/">
+
+	<xs:element name="validaOrden" type="tns:validaOrden"></xs:element>
+
+	<xs:element name="validaOrdenResponse" type="tns:validaOrdenResponse"></xs:element>
+
+	<xs:complexType name="validaOrden">
+		<xs:sequence>
+			<xs:element name="arg0" type="xs:dateTime" minOccurs="0"></xs:element>
+			<xs:element name="arg1" type="xs:int"></xs:element>
+			<xs:element name="arg2" type="tns:orden" minOccurs="0"></xs:element>
+			<xs:element name="arg3" type="tns:producto" minOccurs="0"
+				maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="orden">
+		<xs:sequence>
+			<xs:element name="cliente" type="tns:cliente" minOccurs="0"></xs:element>
+			<xs:element name="fechaOrden" type="xs:dateTime"
+				minOccurs="0"></xs:element>
+			<xs:element name="numeroOrden" type="xs:long"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="cliente">
+		<xs:sequence>
+			<xs:element name="apellidoMaterno" type="xs:string"
+				minOccurs="0"></xs:element>
+			<xs:element name="apellidoPaterno" type="xs:string"
+				minOccurs="0"></xs:element>
+			<xs:element name="nombre" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="numeroTarjeta" type="xs:string"
+				minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="producto">
+		<xs:sequence>
+
+			<xs:element name="cantidad" type="xs:int"></xs:element>
+			<xs:element name="descripcion" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="numeroProducto" type="xs:int"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="validaOrdenResponse">
+		<xs:sequence>
+			<xs:element name="return" type="xs:boolean"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

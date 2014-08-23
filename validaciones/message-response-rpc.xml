@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<ns2:validaOrdenResponse
+	xmlns:ns2="http://rpc.sei.webservices.cursos.synergyj.com/">
+	<return>false</return>
+</ns2:validaOrdenResponse>

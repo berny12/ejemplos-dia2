@@ -1,0 +1,7 @@
+<jaxws:bindings
+wsdlLocation =
+"http://127.0.0.1:9879/buscadorLibros?wsdl"
+xmlns:jaxws="http://java.sun.com/xml/ns/jaxws">
+<jaxws:enableWrapperStyle>true</jaxws:enableWrapperStyle>
+<jaxws:enableAsyncMapping>true</jaxws:enableAsyncMapping>
+</jaxws:bindings>

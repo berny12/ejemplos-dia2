@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<ns2:validaOrden xmlns:ns2="http://rpc.sei.webservices.cursos.synergyj.com/">
+	<arg0>2010-06-27T19:40:36.130-05:00</arg0>
+	<arg1>1</arg1>
+	<arg2>
+		<cliente>
+			<apellidoMaterno>Aguirre</apellidoMaterno>
+			<apellidoPaterno>Martinez</apellidoPaterno>
+			<nombre>Julian</nombre>
+			<numeroTarjeta>4567344546344567</numeroTarjeta>
+		</cliente>
+		<fechaOrden>2010-06-27T19:40:35.733-05:00
+		</fechaOrden>
+		<numeroOrden>7834</numeroOrden>
+	</arg2>
+	<arg3 />
+</ns2:validaOrden>

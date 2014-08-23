@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:tns="http://document.sei.webservices.cursos.synergyj.com/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/"
+	targetNamespace="http://document.sei.webservices.cursos.synergyj.com/">
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://document.sei.webservices.cursos.synergyj.com/"
+				schemaLocation="http://127.0.0.1:9878/ordenCompraService?xsd=1"></xsd:import>
+		</xsd:schema>
+	</types>
+	<message name="validaOrden">
+		<part name="parameters" element="tns:validaOrden"></part>
+	</message>
+	<message name="validaOrdenResponse">
+		<part name="parameters" element="tns:validaOrdenResponse"></part>
+	</message>
+	<portType name="OrdenCompraService">
+		<operation name="validaOrden">
+			<input message="tns:validaOrden"></input>
+			<output message="tns:validaOrdenResponse"></output>
+		</operation>
+	</portType>
+</definitions>
