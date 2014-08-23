@@ -93,10 +93,11 @@ public class BusquedaLibrosAsincronoTestCase {
 		};
 		
 		//agregamos las respuesta para que sea manejada por future
+		logger.debug("Peticion-- Haciendo la invocacion al webservice ");
 		future = service.getBusquedaLibrosServiceImplPort().buscaLibrosAsync("Andrew J. Oppel", "SOA", null, handler);
 		
 		//simulamos que hacemos algo
-		logger.debug("Haciendo algo");
+		logger.debug("Cliente-- Haciendo algo");
 		Thread.sleep(10000);
 		
 		//indicar que se termino la peticion
