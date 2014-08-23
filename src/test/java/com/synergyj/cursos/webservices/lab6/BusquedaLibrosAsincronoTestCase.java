@@ -12,6 +12,7 @@ package com.synergyj.cursos.webservices.lab6;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 import javax.xml.ws.AsyncHandler;
@@ -60,7 +61,7 @@ public class BusquedaLibrosAsincronoTestCase {
 
 	//consumiendo en WS de forma asincorna
 	@Test
-	public void buscaLibrosFormaAsincrona() throws InterruptedException,ExecutionException{
+	public void buscaLibrosFormaAsincrona() throws InterruptedException,ExecutionException, TimeoutException{
 		
 		BusquedaLibrosServiceImplService service = new BusquedaLibrosServiceImplService();
 		
@@ -100,9 +101,17 @@ public class BusquedaLibrosAsincronoTestCase {
 		logger.debug("Cliente-- Haciendo algo");
 		Thread.sleep(10000);
 		
+		//para exigir la respuesta ahora pero si no esperar 3000 ms, pero rompe el patron por que manda la exececion
+		//future.get(3000,TimeUnit.MILLISECONDS);
+		
 		//indicar que se termino la peticion
 		logger.debug("Terminando la peticion");
 		
+		//imprimimos los libros
+		for(Libro libro : ((BuscaLibrosResponse)(future.get())).getReturn()){
+			logger.debug("Titulo: "+ libro.getTitulo());
+			logger.debug("Autor: "+libro.getAutor());
+		}
 	}
 	
 	
