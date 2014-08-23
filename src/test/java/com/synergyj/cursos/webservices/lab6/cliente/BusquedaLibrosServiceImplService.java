@@ -4,6 +4,8 @@ package com.synergyj.cursos.webservices.lab6.cliente;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.logging.Logger;
+
+import javax.jws.HandlerChain;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 import javax.xml.ws.WebEndpoint;
@@ -18,6 +20,8 @@ import javax.xml.ws.WebServiceFeature;
  * 
  */
 @WebServiceClient(name = "BusquedaLibrosServiceImplService", targetNamespace = "http://document.sib.webservices.cursos.synergyj.com/", wsdlLocation = "http://127.0.0.1:9879/buscadorLibros?wsdl")
+//se agregar la anotacion para que carge del archivo de configuracion
+@HandlerChain(file="handler-chain.xml")
 public class BusquedaLibrosServiceImplService
     extends Service
 {

@@ -55,6 +55,7 @@ public class BusquedaLibrosAsincronoTestCase {
 		service = new BusquedaLibrosServiceImplService();
 		
 		//se agrega el handlerresolver para que use el handler
+		/*forma uno de agregar un handler a nuestro cliente
 		service.setHandlerResolver(new HandlerResolver() {
 
 			@Override
@@ -65,6 +66,7 @@ public class BusquedaLibrosAsincronoTestCase {
 			}
 			
 		});
+		*/
 		
 		busqueda = service.getBusquedaLibrosServiceImplPort();
 		List<Libro> libros = busqueda.buscaLibros("Andrew J. Oppel", "SOA", null);		
