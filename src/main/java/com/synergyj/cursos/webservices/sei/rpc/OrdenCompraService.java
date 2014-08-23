@@ -26,7 +26,8 @@ import com.synergyj.cursos.webservices.entidades.compras.Producto;
  * @version 1.0
  */
 @WebService
-@SOAPBinding(style = Style.RPC)
+//@SOAPBinding(style = Style.RPC)
+@SOAPBinding(style = Style.DOCUMENT)
 public interface OrdenCompraService {
 
 	/**
