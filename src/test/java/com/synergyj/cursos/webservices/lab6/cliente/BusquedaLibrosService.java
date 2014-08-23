@@ -35,6 +35,7 @@ public interface BusquedaLibrosService {
      * @return
      *     returns javax.xml.ws.Response<com.synergyj.cursos.webservices.lab6.cliente.BuscaLibrosResponse>
      */
+	//metodo asincrono con response
     @WebMethod(operationName = "buscaLibros")
     @RequestWrapper(localName = "buscaLibros", targetNamespace = "http://document.sei.webservices.cursos.synergyj.com/", className = "com.synergyj.cursos.webservices.lab6.cliente.BuscaLibros")
     @ResponseWrapper(localName = "buscaLibrosResponse", targetNamespace = "http://document.sei.webservices.cursos.synergyj.com/", className = "com.synergyj.cursos.webservices.lab6.cliente.BuscaLibrosResponse")
@@ -55,6 +56,7 @@ public interface BusquedaLibrosService {
      * @return
      *     returns java.util.concurrent.Future<? extends java.lang.Object>
      */
+    //metodo asincrono con future
     @WebMethod(operationName = "buscaLibros")
     @RequestWrapper(localName = "buscaLibros", targetNamespace = "http://document.sei.webservices.cursos.synergyj.com/", className = "com.synergyj.cursos.webservices.lab6.cliente.BuscaLibros")
     @ResponseWrapper(localName = "buscaLibrosResponse", targetNamespace = "http://document.sei.webservices.cursos.synergyj.com/", className = "com.synergyj.cursos.webservices.lab6.cliente.BuscaLibrosResponse")

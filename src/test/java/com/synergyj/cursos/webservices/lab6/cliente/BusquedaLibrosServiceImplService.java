@@ -64,7 +64,7 @@ public class BusquedaLibrosServiceImplService
      *     returns BusquedaLibrosService
      */
     @WebEndpoint(name = "BusquedaLibrosServiceImplPort")
-    public BusquedaLibrosService getBusquedaLibrosServiceImplPort(WebServiceFeature... features) {
+    public BusquedaLibrosService getBusquedaLibrosServiceImplPort(WebServiceFeature... features) {//features permite al macenas un metodo para respuestas asincoronas
         return super.getPort(new QName("http://document.sib.webservices.cursos.synergyj.com/", "BusquedaLibrosServiceImplPort"), BusquedaLibrosService.class, features);
     }
 
