@@ -11,11 +11,17 @@ package com.synergyj.cursos.webservices.lab6;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 import java.util.concurrent.TimeoutException;
+
+import javax.xml.ws.AsyncHandler;
+import javax.xml.ws.Response;
+
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.synergyj.cursos.webservices.lab6.cliente.BuscaLibrosResponse;
 import com.synergyj.cursos.webservices.lab6.cliente.BusquedaLibrosService;
 import com.synergyj.cursos.webservices.lab6.cliente.BusquedaLibrosServiceImplService;
 import com.synergyj.cursos.webservices.lab6.cliente.Libro;
@@ -33,8 +39,8 @@ public class BusquedaLibrosAsincronoTestCase {
 	private static final Logger logger = LoggerFactory
 			.getLogger(BusquedaLibrosAsincronoTestCase.class);
 
-	@Test
-	public void buscaLibrosFormaAsincrona() throws InterruptedException, ExecutionException,
+	//@Test
+	public void buscaLibrosFormaSincrona() throws InterruptedException, ExecutionException,
 			TimeoutException {
 
 		BusquedaLibrosServiceImplService service;
@@ -52,4 +58,51 @@ public class BusquedaLibrosAsincronoTestCase {
 
 	}
 
+	//consumiendo en WS de forma asincorna
+	@Test
+	public void buscaLibrosFormaAsincrona() throws InterruptedException,ExecutionException{
+		
+		BusquedaLibrosServiceImplService service = new BusquedaLibrosServiceImplService();
+		
+		//clase que permite manejar la respuesta de mi WS BusquedadLibrosResponse
+		AsyncHandler<BuscaLibrosResponse> handler;
+		Future<?> future;
+		
+		handler = new AsyncHandler<BuscaLibrosResponse>() {
+
+			@Override
+			public void handleResponse(Response<BuscaLibrosResponse> res) {
+				
+				
+				logger.debug("Respuesta-- El numero de libros obtenidos:");
+				
+				 try {
+					
+					logger.debug(""+res.get().getReturn().size());
+
+					
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (ExecutionException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+		};
+		
+		//agregamos las respuesta para que sea manejada por future
+		future = service.getBusquedaLibrosServiceImplPort().buscaLibrosAsync("Andrew J. Oppel", "SOA", null, handler);
+		
+		//simulamos que hacemos algo
+		logger.debug("Haciendo algo");
+		Thread.sleep(10000);
+		
+		//indicar que se termino la peticion
+		logger.debug("Terminando la peticion");
+		
+	}
+	
+	
 }
