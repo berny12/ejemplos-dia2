@@ -89,9 +89,6 @@ public class SecurityClienteHandler implements SOAPHandler<SOAPMessageContext> {
 		}
 		
 		
-		
-	
-		return false;
 	}
 
 	@Override

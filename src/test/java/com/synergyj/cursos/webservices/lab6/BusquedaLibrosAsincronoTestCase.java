@@ -9,6 +9,7 @@
  */
 package com.synergyj.cursos.webservices.lab6;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -17,6 +18,9 @@ import java.util.concurrent.TimeoutException;
 
 import javax.xml.ws.AsyncHandler;
 import javax.xml.ws.Response;
+import javax.xml.ws.handler.Handler;
+import javax.xml.ws.handler.HandlerResolver;
+import javax.xml.ws.handler.PortInfo;
 
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -26,6 +30,7 @@ import com.synergyj.cursos.webservices.lab6.cliente.BuscaLibrosResponse;
 import com.synergyj.cursos.webservices.lab6.cliente.BusquedaLibrosService;
 import com.synergyj.cursos.webservices.lab6.cliente.BusquedaLibrosServiceImplService;
 import com.synergyj.cursos.webservices.lab6.cliente.Libro;
+import com.synergyj.cursos.webservices.soap.handlers.SecurityClienteHandler;
 
 /**
  * Invocacion de un WS en forma asincrona.
@@ -40,7 +45,7 @@ public class BusquedaLibrosAsincronoTestCase {
 	private static final Logger logger = LoggerFactory
 			.getLogger(BusquedaLibrosAsincronoTestCase.class);
 
-	//@Test
+	@Test
 	public void buscaLibrosFormaSincrona() throws InterruptedException, ExecutionException,
 			TimeoutException {
 
@@ -48,6 +53,19 @@ public class BusquedaLibrosAsincronoTestCase {
 		BusquedaLibrosService busqueda = null;
 
 		service = new BusquedaLibrosServiceImplService();
+		
+		//se agrega el handlerresolver para que use el handler
+		service.setHandlerResolver(new HandlerResolver() {
+
+			@Override
+			public List<Handler> getHandlerChain(PortInfo portInfo) {
+				List<Handler> lista = new ArrayList<Handler>();
+				lista.add(new SecurityClienteHandler());
+				return lista;
+			}
+			
+		});
+		
 		busqueda = service.getBusquedaLibrosServiceImplPort();
 		List<Libro> libros = busqueda.buscaLibros("Andrew J. Oppel", "SOA", null);		
 		
@@ -60,7 +78,7 @@ public class BusquedaLibrosAsincronoTestCase {
 	}
 
 	//consumiendo en WS de forma asincorna
-	@Test
+	//@Test
 	public void buscaLibrosFormaAsincrona() throws InterruptedException,ExecutionException, TimeoutException{
 		
 		BusquedaLibrosServiceImplService service = new BusquedaLibrosServiceImplService();
