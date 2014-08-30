@@ -12,13 +12,20 @@ package com.synergyj.cursos.webservices.lab12;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.xml.ws.handler.Handler;
+import javax.xml.ws.handler.HandlerResolver;
+import javax.xml.ws.handler.PortInfo;
+
 import junit.framework.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.synergyj.cursos.webservices.lab12.cliente.BookImage;
 import com.synergyj.cursos.webservices.lab12.cliente.ImageBookSearchServiceImplService;
+import com.synergyj.cursos.webservices.soap.handlers.ImageHandler;
 
 /**
  * TODO [Descripcion de la clase]
@@ -47,6 +54,16 @@ public class ImageBookSearchServiceTestCase {
 		FileOutputStream fos;
 
 		service = new ImageBookSearchServiceImplService();
+		//aqui va en handler de forma programatica
+		service.setHandlerResolver(new HandlerResolver() {
+			
+			@Override
+			public List<Handler> getHandlerChain(PortInfo arg0) {
+				List<Handler> lista = new ArrayList<Handler>();
+				lista.add(new ImageHandler());
+				return lista;
+			}
+		});
 		logger.debug("Obteniendo  lobros con imagen.");
 		listaLibros = service.getImageBookSearchServiceImplPort().getWebServiceBooks();
 
