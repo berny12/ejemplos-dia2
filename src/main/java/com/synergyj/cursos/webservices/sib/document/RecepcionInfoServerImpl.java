@@ -9,6 +9,7 @@
  */
 package com.synergyj.cursos.webservices.sib.document;
 
+import javax.jws.HandlerChain;
 import javax.jws.WebService;
 
 import org.slf4j.Logger;
@@ -22,6 +23,10 @@ import com.synergyj.cursos.webservices.sei.document.RecepcionInfoServer;
  * @version 1.0
  */
 @WebService(endpointInterface = "com.synergyj.cursos.webservices.sei.document.RecepcionInfoServer")
+/*
+ * agregmos la anotacion de manejadoras de handlers
+ */
+@HandlerChain(file = "handlers/cadenaHandlersServer.xml")
 public class RecepcionInfoServerImpl implements RecepcionInfoServer {
 
 	/**
