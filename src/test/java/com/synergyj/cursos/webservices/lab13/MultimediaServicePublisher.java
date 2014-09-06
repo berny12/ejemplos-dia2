@@ -41,6 +41,7 @@ public class MultimediaServicePublisher {
 		logger.debug("Habilitando MTOM");
 		endpoint = Endpoint.create(new MultimediaServiceImpl());
 		binding = (SOAPBinding) endpoint.getBinding();
+		//el publisher debe hbilitar el protocolo mtom
 		binding.setMTOMEnabled(true);
 
 		logger.debug("Publicando WS estilo document en  " + url);

@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.1
  * 
  */
-@WebServiceClient(name = "MultimediaServiceImplService", targetNamespace = "http://document.sib.webservices.cursos.synergyj.com/", wsdlLocation = "http://127.0.0.1:8080/multimediaService?wsdl")
+@WebServiceClient(name = "MultimediaServiceImplService", targetNamespace = "http://document.sib.webservices.cursos.synergyj.com/", wsdlLocation = "http://127.0.0.1:9878/multimediaService?wsdl")
 public class MultimediaServiceImplService
     extends Service
 {
@@ -30,7 +30,7 @@ public class MultimediaServiceImplService
         try {
             URL baseUrl;
             baseUrl = com.synergyj.cursos.webservices.lab13.cliente.MultimediaServiceImplService.class.getResource(".");
-            url = new URL(baseUrl, "http://127.0.0.1:8080/multimediaService?wsdl");
+            url = new URL(baseUrl, "http://127.0.0.1:9878/multimediaService?wsdl");
         } catch (MalformedURLException e) {
             logger.warning("Failed to create URL for the wsdl Location: 'http://127.0.0.1:8080/multimediaService?wsdl', retrying as a local file");
             logger.warning(e.getMessage());

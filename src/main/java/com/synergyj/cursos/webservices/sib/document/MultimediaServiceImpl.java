@@ -29,6 +29,7 @@ import com.synergyj.cursos.webservices.sei.document.MultimediaService;
  * @version 1.0
  */
 @WebService(endpointInterface = "com.synergyj.cursos.webservices.sei.document.MultimediaService")
+//esta anotacion le decimos que va ir en protocolo mtom la version 1.1 es la standar
 @BindingType(value = SOAPBinding.SOAP11HTTP_MTOM_BINDING)
 @HandlerChain(file = "mtom/MTOMServerHandlerChain.xml")
 public class MultimediaServiceImpl implements MultimediaService {

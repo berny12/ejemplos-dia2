@@ -76,9 +76,10 @@ public class MultimediaServiceTestCase {
 
 		dataHandler = service.getMultimediaServiceImplPort().getSong();
 		logger.debug("Obteniendo una cancion del ws");
-
+        //obtiene el tipo del handler atraves del mimtype
 		logger.debug("mime type: " + dataHandler.getContentType());
 		logger.debug("Content: " + dataHandler.getContent());
+		//el contenido se obtiene a un inputstream 
 		is = dataHandler.getInputStream();
 		buffer = new byte[bufferSize];
 		fos = new FileOutputStream("target/test-classes/song.mp3");
